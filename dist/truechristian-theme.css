@@ -391,7 +391,6 @@ p {
     gap: 0.4rem;
   }
 }
-
 @media (min-width: 960px) {
   .tm-header .uk-navbar,
   .tm-header .uk-navbar-item,
@@ -447,8 +446,9 @@ p {
   list-style: none;
 }
 
-.tcc-footer-group li + li {
-  margin-top: 10px;
+.tcc-footer-group li + li,
+.tm-bottom .uk-list > li + li {
+  margin-top: 5px;
 }
 
 .tcc-footer-group li a,

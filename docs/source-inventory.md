@@ -10,12 +10,13 @@ This document distinguishes extracted facts from repository implementation decis
 | Supplied header HTML | Complete desktop navbar and mega-menu markup |
 | `assets/brand/logo.jpg` | Source logo, `288 × 77`, with source alt text `A True Christian Church` |
 | `assets/favicons/favicon.ico` | Supplied 16 × 16 browser icon |
+| `assets/footer/city-skyline-skyscrapers-top.jpg` | Owner-supplied original skyline image, `1920 × 1280`, used in the desktop directory footer |
 | `docs/reference/header-desktop.png` | Desktop header silhouette, spacing, colors, navigation presentation, and services subtitle |
 | `docs/reference/footer-desktop.png` | Directory footer and copyright footer composition |
 
 The supplied desktop header excerpt is retained in `docs/source/header-desktop-source.html` with trailing whitespace normalized for version control. Its stable static menu content is normalized in `src/data/main-site-navigation.json`. The global footer is retained as a whitespace-normalized semantic extract in `docs/source/footer-source-extract.html` and as canonical data in `src/data/site-chrome.json`.
 
-Protected source assets are checked byte-for-byte by `npm run check`; this prevents an automated edit from silently replacing the logo, favicon, or visual references.
+Protected source assets are checked byte-for-byte by `npm run check`; this prevents an automated edit from silently replacing the logo, favicon, skyline, or visual references.
 
 ## Exact references found in the page source
 

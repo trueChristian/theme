@@ -96,7 +96,7 @@
         { "label": "Telegram", "href": "/telegram", "icon": "telegram", "external": false, "newTab": true }
       ],
       "desktopImage": "/images/city-skyline-skyscrapers-top.jpg",
-      "repositoryReferenceImage": "assets/footer/city-skyline-reference.png"
+      "repositoryReferenceImage": "assets/footer/city-skyline-skyscrapers-top.jpg"
     },
     "copyright": {
       "prefix": "Copyright © trueChristian.Church",

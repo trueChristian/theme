@@ -26,7 +26,7 @@ The exact contracts are in [AGENTS.md](AGENTS.md), [docs/header.md](docs/header.
 | `src/data/main-site-navigation.json` | Full static menu data extracted from the supplied main-site header |
 | `assets/brand/logo.jpg` | Source church logo, 288 × 77 |
 | `assets/favicons/favicon.ico` | Supplied browser favicon |
-| `assets/footer/city-skyline-reference.png` | 270 × 180 screenshot-derived footer image reference |
+| `assets/footer/city-skyline-skyscrapers-top.jpg` | Owner-supplied 1920 × 1280 footer skyline image |
 | `dist/` | Built, directly consumable CSS and header JavaScript |
 | `docs/` | Human-readable brand and implementation guide |
 | `docs/component-inventory.md` | Supplied page-source framework/CSS roles and evidence limits |
