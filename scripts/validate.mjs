@@ -8,7 +8,7 @@ const requiredFiles = [
   "AGENTS.md",
   "assets/brand/logo.jpg",
   "assets/favicons/favicon.ico",
-  "assets/footer/city-skyline-reference.png",
+  "assets/footer/city-skyline-skyscrapers-top.jpg",
   "docs/header.md",
   "docs/footer.md",
   "docs/reference/header-desktop.png",
@@ -31,13 +31,15 @@ for (const file of requiredFiles) await access(path.join(root, file));
 
 const logo = await stat(path.join(root, "assets/brand/logo.jpg"));
 const favicon = await stat(path.join(root, "assets/favicons/favicon.ico"));
+const skyline = await stat(path.join(root, "assets/footer/city-skyline-skyscrapers-top.jpg"));
 if (logo.size !== 25467) throw new Error(`Unexpected logo byte size: ${logo.size}`);
 if (favicon.size !== 1150) throw new Error(`Unexpected favicon byte size: ${favicon.size}`);
+if (skyline.size !== 675630) throw new Error(`Unexpected skyline byte size: ${skyline.size}`);
 
 const expectedHashes = {
   "assets/brand/logo.jpg": "69b53d5ff26b260efbc859887112a1be8ffc851c335befa3c47a2d3ae9aa53bf",
   "assets/favicons/favicon.ico": "2a28086f29f140828e2c1e03629a5d8306000c456453a9e6d25cf4ccfadb9a2d",
-  "assets/footer/city-skyline-reference.png": "e21c5357ee6583efc20eb2c6c3926dfd89554a327cd2ea00518c9b3b7ca4f12a",
+  "assets/footer/city-skyline-skyscrapers-top.jpg": "aab7c06838605db29376f81b263639716e07f870d53e133dccb7dc27b7417053",
   "docs/reference/header-desktop.png": "23c862136e521fb69a46aca6f38b125ec58a7c340638c4b09dc62bc51ebec40f",
   "docs/reference/footer-desktop.png": "392add221768d63d1055ade7d487808ba63236d83b717d60e3fc274df6a46fe2",
   "docs/source/header-desktop-source.html": "1ec7e611834da96da84c35c2fd579e64752ee2687df3379d4da27edddbde99b9"
@@ -149,7 +151,10 @@ for (const group of chrome.footer.directoryGroups) {
 for (const link of chrome.footer.social.links) {
   if (!directoryMarkup.includes(`href="${portableHref(link.href)}"`)) throw new Error(`Social footer URL is missing: ${link.href}`);
 }
-if (!footer.includes("city-skyline-reference.png")) throw new Error("Footer image reference is missing.");
+for (const markup of [footer, example]) {
+  if (!markup.includes("city-skyline-skyscrapers-top.jpg")) throw new Error("Footer image reference is missing.");
+  if (markup.includes("city-skyline-reference.png")) throw new Error("Obsolete screenshot-derived skyline is still referenced.");
+}
 
 const copyrightMarkup = footer.slice(footer.indexOf("<footer"));
 let previousCopyrightIndex = -1;
@@ -164,6 +169,12 @@ for (const link of chrome.footer.copyright.links) {
 
 for (const selector of [".tcc-site-header", ".tcc-footer-directory", ".tcc-footer-copyright", ".tm-bottom", "#license"]) {
   if (!css.includes(selector)) throw new Error(`Built CSS is missing selector: ${selector}`);
+}
+
+const sourceFooterCss = await readFile(path.join(root, "src/css/footer.css"), "utf8");
+const linkGapContract = /\.tcc-footer-group li \+ li,\s*\.tm-bottom \.uk-list > li \+ li\s*\{\s*margin-top: 5px;\s*\}/;
+if (!linkGapContract.test(sourceFooterCss)) {
+  throw new Error("Footer link rows must use the documented 5px sibling gap in portable and YOOtheme markup.");
 }
 
 for (const value of ["--tcc-container-max: 1200px", "border-top: 1px solid", "min-height: 80px", "font-size: 0.6875rem", "gap: 40px", "width: 36px", "padding-block: var(--tcc-space-7)"]) {

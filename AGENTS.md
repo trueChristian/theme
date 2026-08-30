@@ -71,7 +71,8 @@ This terminology prevents the YOOtheme region name `tm-bottom` from being confus
 - Use the exact labels, URLs, order, and external-link behavior in `src/data/site-chrome.json`.
 - The data preserves the source's root-relative URLs. On a different domain, resolve every root-relative global-footer URL against `https://truechristian.church`; the portable HTML template already does this.
 - `Social Outreach` MUST contain only GitHub and Telegram icon links, in that order.
-- The source skyline file is `/images/city-skyline-skyscrapers-top.jpg`. It was not supplied separately; `assets/footer/city-skyline-reference.png` is an exact-size reference crop from the owner-supplied screenshot. Preserve its `270px × 180px` slot and do not substitute unrelated stock imagery.
+- The owner-supplied original skyline file is `assets/footer/city-skyline-skyscrapers-top.jpg`, matching the source-site path `/images/city-skyline-skyscrapers-top.jpg`. Preserve the original asset and its `270px × 180px` display slot; do not replace it with a screenshot crop or unrelated stock imagery.
+- Directory link rows MUST use a `5px` sibling gap. Apply the same spacing to portable `.tcc-footer-group` markup and compatible `.tm-bottom .uk-list` markup.
 - On medium layouts, the four columns MAY become a two-by-two grid. On narrow layouts, stack them and center headings, links, and social controls.
 - Keep the generous light-grey spacing, uppercase headings and links, circular social buttons, rounded image treatment, and subdued shadow shown in `docs/reference/footer-desktop.png`.
 

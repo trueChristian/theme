@@ -38,8 +38,9 @@
   list-style: none;
 }
 
-.tcc-footer-group li + li {
-  margin-top: 10px;
+.tcc-footer-group li + li,
+.tm-bottom .uk-list > li + li {
+  margin-top: 5px;
 }
 
 .tcc-footer-group li a,
