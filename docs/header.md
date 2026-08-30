@@ -36,6 +36,8 @@ The screenshot is a 1.25× capture; its device-pixel geometry is larger than the
 
 The supplied screenshot is the home page, so `Home` is active there. The reusable fragment intentionally has no hardcoded current item; the consuming page must add `aria-current="page"` and `.is-active` to its actual route.
 
+The header is visible when the page is at the top. Once the visitor scrolls down past the header, it slides out of view; scrolling upward reveals it again. Keep it visible while the mobile menu is open or keyboard focus is inside the header. The portable script applies small direction thresholds so minor trackpad or touch movement does not make the bar flicker.
+
 ## Canonical main-site order
 
 1. Home
@@ -53,7 +55,7 @@ The canonical main-site mega-menu is not a generic requirement for every satelli
 
 The source uses `tm-header-mobile uk-hidden@m`, a left menu toggle, centered logo, and a slide-mode off-canvas menu. Nested entries become an accordion. Implementations on other frameworks must preserve this behavior even when class names differ.
 
-The portable template uses `src/js/site-header.js` for open/close state, submenu state, Escape, focus containment, inert off-screen navigation, and breakpoint synchronization. Load the built script with `defer`.
+The portable template uses `src/js/site-header.js` for scroll-direction visibility, open/close state, submenu state, Escape, focus containment, inert off-screen navigation, and breakpoint synchronization. Load the built script with `defer`.
 
 ## Reusable markup
 

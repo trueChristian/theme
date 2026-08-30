@@ -17,7 +17,7 @@ The compiled contents of `theme.13.css` were not included in the supplied HTML. 
 | Area | Source roles/classes | Meaning for implementations |
 | --- | --- | --- |
 | Page shell | `tm-page`, `tm-main`, `uk-container`, `uk-container-expand` | Full-width bands with centered content containers |
-| Header | `tm-header`, `tm-header-mobile`, `uk-navbar*`, `uk-logo`, `uk-sticky` | Desktop sticky navbar plus mobile replacement |
+| Header | `tm-header`, `tm-header-mobile`, `uk-navbar*`, `uk-logo`, `uk-sticky` | Sticky navbar that hides on downward scroll and reveals on upward scroll, plus mobile replacement |
 | Navigation | `uk-nav*`, `uk-navbar-dropdown`, `uk-drop`, `uk-offcanvas`, `uk-nav-accordion` | Dropdown/mega-menu and accessible mobile drawer behavior |
 | Sections | `uk-section-default`, `uk-section-primary`, `uk-section-muted`, `uk-section-large`, `uk-section-xlarge` | Semantic surface and spacing variants |
 | Layout | `uk-grid*`, `uk-width-*`, `uk-flex*`, `uk-tile*` | Responsive grids, widths, alignment, and matched tiles |

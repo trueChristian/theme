@@ -46,7 +46,7 @@ Every site MUST include a responsive header with the following behavior:
 - Navigation entries belonging to the site or page being built MUST follow `Home` and use the same visual treatment.
 - On the main church site, the canonical entries are `The Holy Scriptures`, `Sermons`, `Articles`, `Daily`, and `Services` with the `Join us` subtitle. Preserve the full extracted menu data in `src/data/main-site-navigation.json`.
 - Desktop navigation MUST use the white bar, thin cyan top rule, uppercase widely spaced labels, and active/hover contrast shown in the reference screenshot.
-- The desktop header SHOULD be sticky and reveal on upward scroll when the host framework supports it.
+- The header MUST remain visible at the top of the page, hide when the visitor scrolls downward, and reveal again when the visitor scrolls upward. Portable implementations MUST provide this behavior through `dist/truechristian-theme.js` or an equivalent implementation.
 - Below the desktop breakpoint, use a menu toggle and off-canvas or equivalent accessible navigation. Keep the logo centered and never squeeze the complete desktop menu into a narrow row.
 - Dropdown triggers MUST be keyboard operable and expose `aria-expanded`; the mobile menu MUST have an accessible close control.
 - Portable implementations MUST load `dist/truechristian-theme.js` (built from `src/js/site-header.js`) or provide equivalent menu, submenu, Escape-key, focus, and breakpoint behavior.
@@ -70,7 +70,7 @@ This terminology prevents the YOOtheme region name `tm-bottom` from being confus
 - Use four desktop columns in this exact order: `Church Info`, `Projects`, `Welcome`, `Social Outreach`.
 - Use the exact labels, URLs, order, and external-link behavior in `src/data/site-chrome.json`.
 - The data preserves the source's root-relative URLs. On a different domain, resolve every root-relative global-footer URL against `https://truechristian.church`; the portable HTML template already does this.
-- `Social Outreach` MUST contain X/Twitter, Facebook, GitHub, and Telegram icon links.
+- `Social Outreach` MUST contain only GitHub and Telegram icon links, in that order.
 - The source skyline file is `/images/city-skyline-skyscrapers-top.jpg`. It was not supplied separately; `assets/footer/city-skyline-reference.png` is an exact-size reference crop from the owner-supplied screenshot. Preserve its `270px × 180px` slot and do not substitute unrelated stock imagery.
 - On medium layouts, the four columns MAY become a two-by-two grid. On narrow layouts, stack them and center headings, links, and social controls.
 - Keep the generous light-grey spacing, uppercase headings and links, circular social buttons, rounded image treatment, and subdued shadow shown in `docs/reference/footer-desktop.png`.

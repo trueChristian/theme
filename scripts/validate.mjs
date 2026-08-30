@@ -53,6 +53,8 @@ const mainNavigation = JSON.parse(await readFile(path.join(root, "src/data/main-
 const groupLabels = chrome.footer.directoryGroups.map((group) => group.label);
 if (groupLabels.join("|") !== "Church Info|Projects|Welcome") throw new Error("Directory group order changed.");
 if (chrome.footer.social.label !== "Social Outreach") throw new Error("Social footer group is missing.");
+const socialLabels = chrome.footer.social.links.map((link) => link.label);
+if (socialLabels.join("|") !== "GitHub|Telegram") throw new Error("Social footer must contain only GitHub and Telegram.");
 
 const requiredCopyright = ["free distribution only", "Privacy Policy", "Mission", "Revival", "We Fear God", "Why we believe the Bible", "Trousseau Chest"];
 const copyrightLabels = chrome.footer.copyright.links.map((link) => link.label);
@@ -170,6 +172,15 @@ for (const value of ["--tcc-container-max: 1200px", "border-top: 1px solid", "mi
 
 for (const behavior of ["Escape", "inert", "aria-expanded", "tcc-menu-open"]) {
   if (!sourceScript.includes(behavior)) throw new Error(`Header script is missing behavior: ${behavior}`);
+}
+for (const behavior of ["requestAnimationFrame", "data-scroll-hidden", 'addEventListener("scroll"']) {
+  if (!sourceScript.includes(behavior)) throw new Error(`Header scroll behavior is missing: ${behavior}`);
+}
+if (!css.includes('.tcc-site-header[data-scroll-hidden="true"]')) throw new Error("Built CSS is missing the hidden header state.");
+for (const canonicalMarkup of [footer, example]) {
+  if (canonicalMarkup.includes("twitter.com") || canonicalMarkup.includes("facebook.com")) {
+    throw new Error("Canonical footer still contains X/Twitter or Facebook.");
+  }
 }
 
 console.log("Theme validation passed.");

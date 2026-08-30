@@ -9,6 +9,18 @@
   position: sticky;
   z-index: 1000;
   top: 0;
+  transform: translateY(0);
+  transition: transform 220ms ease;
+  will-change: transform;
+}
+
+.tcc-site-header[data-scroll-hidden="true"] {
+  transform: translateY(calc(-100% - 1px));
+}
+
+.tcc-site-header[data-menu-open="true"],
+.tcc-site-header:focus-within {
+  transform: translateY(0);
 }
 
 .tcc-header__container {
