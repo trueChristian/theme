@@ -391,6 +391,7 @@ p {
     gap: 0.4rem;
   }
 }
+
 @media (min-width: 960px) {
   .tm-header .uk-navbar,
   .tm-header .uk-navbar-item,
