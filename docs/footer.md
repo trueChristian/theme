@@ -20,7 +20,7 @@ Together they form the required bottom footer assembly. They must remain adjacen
 | Directory grid | Four equal `270px` tracks with `40px` gaps |
 | Group heading | Montserrat 400, `16px/1.4`, uppercase, `2px` tracking, `20px` bottom gap |
 | Group link | Montserrat 400, `11px/1.4`, uppercase, `2px` tracking, `10px` sibling gap, `#2d2e33` |
-| Social controls | Four `36px` white circles, `20px` gaps, `#6c6d74` glyphs, `#e5e5e7` edge |
+| Social controls | Two `36px` white circles, `20px` gaps, `#6c6d74` glyphs, `#e5e5e7` edge |
 | Skyline slot | Desktop only, `270 × 180px`, `20px` top gap, `5px` radius, subdued shadow |
 | Copyright surface | `#303033`, `70px` block padding |
 | Copyright line | Raleway 400, `16px/1.6`; prefix and pipes 70%-white, links white |
@@ -67,10 +67,10 @@ This is a church-wide link directory. The presence of a project link does not ma
 
 ### Social Outreach
 
-- X/Twitter
-- Facebook
 - GitHub
 - Telegram
+
+The historical source evidence includes X/Twitter and Facebook. The repository owner's current instruction supersedes that older footer content, so GitHub and Telegram are the canonical Social Outreach links.
 
 The source also shows `/images/city-skyline-skyscrapers-top.jpg` beneath the social links on desktop. Its CSS slot is `270px × 180px`, with a `5px` radius, `20px` top margin, and subdued shadow; it is hidden below `960px`. The original image file was not supplied. `assets/footer/city-skyline-reference.png` is a correctly sized crop from the supplied footer screenshot, retained as an explicit reference/fallback rather than invented stock imagery.
 

@@ -16,6 +16,10 @@
     const scrim = header.querySelector(".tcc-header__scrim");
     const submenuButtons = header.querySelectorAll(".has-submenu > button");
     let returnFocusTo = null;
+    let lastScrollY = Math.max(0, window.scrollY);
+    let directionStartY = lastScrollY;
+    let scrollDirection = 0;
+    let scrollFrame = null;
 
     if (!toggle || !navigation || !closeButton || !scrim) return;
 
@@ -30,6 +34,7 @@
     const setMenuOpen = (open, restoreFocus = true) => {
       const nextOpen = Boolean(open && mobileQuery.matches);
       header.dataset.menuOpen = String(nextOpen);
+      if (nextOpen) header.removeAttribute("data-scroll-hidden");
       toggle.setAttribute("aria-expanded", String(nextOpen));
       navigation.toggleAttribute("inert", mobileQuery.matches && !nextOpen);
       if (mobileQuery.matches) navigation.setAttribute("aria-hidden", String(!nextOpen));
@@ -99,6 +104,35 @@
     document.addEventListener("click", (event) => {
       if (!header.contains(event.target)) collapseSubmenus();
     });
+
+    header.addEventListener("focusin", () => header.removeAttribute("data-scroll-hidden"));
+
+    const updateScrollState = () => {
+      scrollFrame = null;
+      const currentY = Math.max(0, window.scrollY);
+      const delta = currentY - lastScrollY;
+      const nextDirection = delta > 0 ? 1 : delta < 0 ? -1 : scrollDirection;
+
+      if (nextDirection !== scrollDirection) {
+        scrollDirection = nextDirection;
+        directionStartY = lastScrollY;
+      }
+
+      const distanceInDirection = Math.abs(currentY - directionStartY);
+      if (currentY <= 4 || header.dataset.menuOpen === "true") {
+        header.removeAttribute("data-scroll-hidden");
+      } else if (nextDirection === 1 && currentY > header.offsetHeight && distanceInDirection >= 12) {
+        header.dataset.scrollHidden = "true";
+      } else if (nextDirection === -1 && distanceInDirection >= 8) {
+        header.removeAttribute("data-scroll-hidden");
+      }
+
+      lastScrollY = currentY;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (scrollFrame === null) scrollFrame = window.requestAnimationFrame(updateScrollState);
+    }, { passive: true });
 
     const syncBreakpoint = () => setMenuOpen(false, false);
     if (mobileQuery.addEventListener) mobileQuery.addEventListener("change", syncBreakpoint);

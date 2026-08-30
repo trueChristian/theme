@@ -92,8 +92,6 @@
     "social": {
       "label": "Social Outreach",
       "links": [
-        { "label": "X", "href": "https://twitter.com/llewellynvdm", "icon": "twitter", "external": true, "newTab": true },
-        { "label": "Facebook", "href": "https://www.facebook.com/aTrueChristianChurch", "icon": "facebook", "external": true, "newTab": true },
         { "label": "GitHub", "href": "https://github.com/trueChristian", "icon": "github", "external": true, "newTab": true },
         { "label": "Telegram", "href": "/telegram", "icon": "telegram", "external": false, "newTab": true }
       ],
