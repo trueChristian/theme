@@ -40,7 +40,7 @@
 
 .tcc-footer-group li + li,
 .tm-bottom .uk-list > li + li {
-  margin-top: 5px;
+  margin-top: 0;
 }
 
 .tcc-footer-group li a,
@@ -49,9 +49,10 @@
   color: var(--tcc-color-ink);
   font-family: var(--tcc-font-display);
   font-size: 0.6875rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 2px;
   line-height: 1.4;
+  opacity: 1;
   text-decoration: none;
   text-transform: uppercase;
 }
