@@ -172,9 +172,18 @@ for (const selector of [".tcc-site-header", ".tcc-footer-directory", ".tcc-foote
 }
 
 const sourceFooterCss = await readFile(path.join(root, "src/css/footer.css"), "utf8");
-const linkGapContract = /\.tcc-footer-group li \+ li,\s*\.tm-bottom \.uk-list > li \+ li\s*\{\s*margin-top: 5px;\s*\}/;
+const linkGapContract = /\.tcc-footer-group li \+ li,\s*\.tm-bottom \.uk-list > li \+ li\s*\{\s*margin-top: 0;\s*\}/;
 if (!linkGapContract.test(sourceFooterCss)) {
-  throw new Error("Footer link rows must use the documented 5px sibling gap in portable and YOOtheme markup.");
+  throw new Error("Footer link rows must have no sibling margin in portable and YOOtheme markup.");
+}
+const linkAppearanceContract = /\.tcc-footer-group li a,[\s\S]*?font-weight: 500;[\s\S]*?opacity: 1;[\s\S]*?\}/;
+if (!linkAppearanceContract.test(sourceFooterCss)) {
+  throw new Error("Footer links must use the documented darker weight at full opacity.");
+}
+
+const documentHead = await readFile(path.join(root, "src/html/document-head.html"), "utf8");
+if (!documentHead.includes("Montserrat:wght@400;500")) {
+  throw new Error("Portable head must load the Montserrat 500 weight used by footer links.");
 }
 
 for (const value of ["--tcc-container-max: 1200px", "border-top: 1px solid", "min-height: 80px", "font-size: 0.6875rem", "gap: 40px", "width: 36px", "padding-block: var(--tcc-space-7)"]) {

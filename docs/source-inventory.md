@@ -84,3 +84,5 @@ Montserrat and Raleway are metric-matched font identifications rather than decla
 ## Implementation defaults
 
 The portable `tcc-*` CSS reproduces the supplied structure without requiring Joomla. Its typography stacks and spacing tokens are maintained as repository defaults. They are documented in `docs/typography.md` and `docs/brand-guide.md` and should be revised if the owner supplies the original compiled CSS or font files.
+
+The owner's follow-up footer comparison establishes zero sibling margin between directory rows and full-opacity `#2d2e33` link text. The portable implementation uses Montserrat 500 for those small uppercase links so their rendered weight matches the darker reference.

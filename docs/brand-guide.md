@@ -20,7 +20,7 @@ Use it on white. Preserve its aspect ratio and built-in shadow. Do not recolor, 
 | `--tcc-color-cyan` | `#00cadb` | Thin header top rule and restrained focus accent | Measured |
 | `--tcc-color-directory` | `#f7f7f7` | Directory/link footer | Measured |
 | `--tcc-color-charcoal` | `#303033` | Copyright footer | Measured |
-| `--tcc-color-ink` | `#2d2e33` | Active navigation and directory text | Measured |
+| `--tcc-color-ink` | `#2d2e33` | Active navigation and full-opacity directory text | Measured |
 | `--tcc-color-nav-muted` | `#b4b5ba` | Inactive desktop navigation | Measured |
 | `--tcc-color-social-icon` | `#6c6d74` | Social glyphs | Measured |
 | `--tcc-color-footer-text` | `rgb(255 255 255 / 70%)` | Copyright prefix and separators | Measured composite |

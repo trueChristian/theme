@@ -19,7 +19,7 @@ Together they form the required bottom footer assembly. They must remain adjacen
 | Directory container | `1200px` maximum width |
 | Directory grid | Four equal `270px` tracks with `40px` gaps |
 | Group heading | Montserrat 400, `16px/1.4`, uppercase, `2px` tracking, `20px` bottom gap |
-| Group link | Montserrat 400, `11px/1.4`, uppercase, `2px` tracking, `5px` sibling gap, `#2d2e33` |
+| Group link | Montserrat 500, `11px/1.4`, uppercase, `2px` tracking, no sibling margin, full-opacity `#2d2e33` |
 | Social controls | Two `36px` white circles, `20px` gaps, `#6c6d74` glyphs, `#e5e5e7` edge |
 | Skyline slot | Desktop only, `270 × 180px`, `20px` top gap, `5px` radius, subdued shadow |
 | Copyright surface | `#303033`, `70px` block padding |
